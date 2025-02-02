@@ -1,0 +1,25 @@
+module sc_coded_signal (
+    input wire [15:0] r1,     // Input amplitude r1
+    input wire [15:0] theta1, // Input phase theta1
+    input wire [15:0] P_ai,   // Input P*ai
+    input wire [15:0] xi,     // Input xi
+    output wire [15:0] r_out, // Output amplitude
+    output wire [15:0] theta_out // Output phase
+);
+
+    // Internal signals for intermediate calculations
+    reg [15:0] r_intermediate;
+    reg [15:0] theta_intermediate;
+
+    // SC coded signal logic
+    always @(*) begin
+        // Perform operations on inputs
+        r_intermediate = r1 + P_ai; // Example operation: add r1 and P*ai
+        theta_intermediate = theta1 + xi; // Example operation: add theta1 and xi
+    end
+
+    // Output assignment
+    assign r_out = r_intermediate;
+    assign theta_out = theta_intermediate;
+
+endmodule
