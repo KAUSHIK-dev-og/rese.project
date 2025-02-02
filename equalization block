@@ -1,0 +1,40 @@
+module equalization_sic (
+    input wire [15:0] r1,     // Input amplitude r1
+    input wire [15:0] theta1, // Input phase theta1
+    input wire [15:0] r2,     // Input amplitude r2
+    input wire [15:0] theta2, // Input phase theta2
+    output wire [15:0] r_out, // Output amplitude after equalization
+    output wire [15:0] theta_out // Output phase after equalization
+);
+
+    // Internal signals for equalization
+    reg [15:0] r_eq1, r_eq2;
+    reg [15:0] theta_eq1, theta_eq2;
+
+    // Equalization logic
+    always @(*) begin
+        // Perform equalization on r1, theta1
+        r_eq1 = r1; // Placeholder for equalization logic
+        theta_eq1 = theta1; // Placeholder for equalization logic
+        
+        // Perform equalization on r2, theta2
+        r_eq2 = r2; // Placeholder for equalization logic
+        theta_eq2 = theta2; // Placeholder for equalization logic
+    end
+
+    // Internal signals for SIC
+    reg [15:0] r_sic;
+    reg [15:0] theta_sic;
+
+    // SIC logic
+    always @(*) begin
+        // Perform SIC using equalized signals
+        r_sic = r_eq1 - r_eq2; // Placeholder for SIC logic
+        theta_sic = theta_eq1 - theta_eq2; // Placeholder for SIC logic
+    end
+
+    // Output assignment
+    assign r_out = r_sic;
+    assign theta_out = theta_sic;
+
+endmodule
